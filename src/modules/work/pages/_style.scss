@@ -1,0 +1,237 @@
+@import '../../assets/sass/params';
+@import '../../../assets/sass/base.scss';
+
+html,body{
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+    color: #2c3e50;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transform-style:preserve-3d;
+    -webkit-transform-style:preserve-3d;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    transform: translate3d(0,0,0);
+    -webkit-transform:translate3d(0,0,0);
+}
+
+#app main ,#app .animated{
+    height: 100%;
+}
+
+#app ,.main{
+      overflow: hidden;
+  }
+
+  .header .mint-header,.footer{
+    height: 50px;
+  }
+  .footer{
+    position:fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .footer .mint-tab-item{
+    padding: 10px 0;
+  }
+$global-work-color: #eee !default;
+
+.work-detail{
+        .work-item{
+            position: fixed;
+            top: 40px;
+            bottom: 53px;
+            width: 100%;
+            overflow: auto;
+        }
+		.mint-field{
+			border-bottom: 1px solid #E3E3E3;
+		}
+		.mint-cell-wrapper{
+            padding: 0 15px;
+            background: #fff;
+		}
+		.mint-cell-title{
+			width: 80px;
+        }
+        .mint-field-core{
+            resize: none;
+        }
+        .mint-field.is-textarea .mint-cell-value {
+            padding: 10px 0;
+        }
+        textarea{
+        	font-family: Arial;
+        }
+		.btn-group{  
+		    position: fixed;
+		    bottom: 0;
+		    width: 100%;
+		    height: 53px;
+		    background: #fff;
+		    box-shadow: -3px 9px 20px #bbb;
+		    border-top: 1px solid #ededed;
+		    padding: 5px 15px;
+		    display: flex;
+		    justify-content: space-between;
+		}
+		.mint-button--primary{
+			background-color: #4E8DFF;
+		}
+		.mint-button--danger{
+			background-color: #FF4E4E;
+		}
+		.mint-button{
+			width: 48%;
+		}
+		.save{
+			width: 100%;
+		}
+		//上拉菜单
+	    .mint-actionsheet-listitem {
+	        height: 50px;
+	        line-height: 50px;
+	    }
+	
+	    .mint-actionsheet-listitem:first-child {
+	        height: 65px;
+	        line-height: 65px;
+	        font-size: 15px;
+	    }
+	
+	    .mint-actionsheet-listitem:nth-child(2) {
+	        color: #ff4e4e;
+	    }
+	
+	    .mint-actionsheet-button {
+	        height: 50px;
+	        line-height: 50px;
+	    }
+    }
+    .work-content{
+    overflow:scroll;
+    background-color: #eee;
+    
+    .calendar{
+	    padding-bottom: 5px;
+	}
+    .work-new{
+	    position:relative;
+	    height:46px;
+	    line-height:46px;
+	    padding:0px 15px;
+	    font-size:16px;
+	    background-color:$global-work-color;
+	}
+	.work-new i{
+		position:relative;
+		float:right;
+		height:46px;
+		width:46px;
+	}
+	.work-main{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	    color:#333;
+	}
+	.work-list{
+	    width:100%;
+	    height:100%;
+	    background-color:$global-work-color;
+	}
+	.work-list li{
+	    position: relative;
+	    width:100%;
+	    height:50px;
+	    margin-bottom:5px;
+	    padding:0px 15px;
+	    line-height:50px;
+	    font-size:16px;
+	    background-color:#fff;
+	}
+	.list-time{
+	    display:inline-block;
+	    width:75px;
+	    height:25px;
+	    line-height:25px;
+	    text-align:center;
+	    border-radius:4px ;
+	    color:#fff;
+	    font-size:12px;
+	}
+	.work-list li:nth-of-type(4n-3) .list-time{
+	    background-color:#50c14e;
+	}
+	.work-list li:nth-of-type(4n-2) .list-time{
+	    background-color:#4e8dff;
+	}
+	.work-list li:nth-of-type(4n-1) .list-time{
+	    background-color:#9da5be;
+	}
+	.work-list li:nth-of-type(4n) .list-time{
+	    background-color:#ff7f5c;
+	}
+	.work-list .list-title{
+	    width: 60%;
+	    margin-left:8px;
+	}
+	.work-list li .mint-cell-allow-right::after{
+	    width:16px;
+	    height:16px;
+	    color:#aaa;
+	    right:20px;
+	}
+	.work-no{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		p{
+			font-size: 12px;
+			color: #999999;
+			margin-top: 10px;
+		}
+	}
+	.white-space {
+	    display: inline-block;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	    vertical-align: middle;
+	    word-break: break-all;
+	}
+	.plus:before{
+	    content: '';
+	    position: absolute;
+	    right:0px;
+	    top:20px;
+	    width: 20px;
+	    height: 2px;
+	    background-color: currentColor;
+	    color:#4e8dff;
+	}
+	.plus:after{
+	    content: '';
+	    position: absolute;
+	    right:0px;
+	    top:20px;
+	    width: 20px;
+	    height: 2px;
+	    background-color: currentColor;
+	    -webkit-transform: rotate(90deg);
+	    transform: rotate(90deg);
+	    color:#4e8dff;
+	}
+}
+
+.work-content::-webkit-scrollbar {width: 0px;height: 0px;}

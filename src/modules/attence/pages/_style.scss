@@ -1,0 +1,489 @@
+@import '../../assets/sass/params';
+
+html,body{
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+    color: #2c3e50;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transform-style:preserve-3d;
+    -webkit-transform-style:preserve-3d;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    transform: translate3d(0,0,0);
+    -webkit-transform:translate3d(0,0,0);
+}
+
+#app main ,#app .animated{
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+}
+//动画 start
+.animated {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation-duration: $android-transition-duration;
+    animation-fill-mode: both;
+    background: #fff;
+    will-change: transform;
+    z-index: 1;
+}
+
+.slideInRight-enter-active {
+    animation-name: slideInLeft;
+}
+
+.slideInLeft-enter-active ,.slideInRight-enter-active{
+    position: relative;
+    z-index: 1;
+    background: #fff;
+}
+
+.slideInLeft-leave-active ,.slideInRight-leave-active{
+    position: fixed !important;
+    top: 40px;
+    width: 100%;
+}
+
+.slideInLeft-enter-active {
+    animation-name: slideInRight;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+        opacity: 1;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        opacity: 1;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+//动画 end
+
+.attence-panel {
+    background: #fafafa;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.attence {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #e2e2e2;
+    background: #fff;
+}
+.attence-geog {
+    position: relative;
+    height: 270px;
+    background: url(./sources/bg.png);
+    background-size: 100% 100%;
+    color: #fff;
+    .attence-marker {
+        position: absolute;
+        left: 0;
+        top: 54px;
+        width: 100%;
+        height: 145px;
+        color: #fff;
+        .attence-day {
+            text-align: center;
+        }
+        .attence-place {
+            position: absolute;
+            top: 32px;
+            left: 50%;
+            margin-left: -15px;
+            width: 1px;
+            font-size: 34px;
+            text-align: center;
+            animation: attence .8s infinite;
+        }
+    }
+    .attence-location {
+        position: absolute;
+        bottom: -15px;
+        width: 100%;
+        line-height: 1.5;
+        .attence-title {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .attence-lieu {
+            font-size: 14px;
+            text-align: center;
+        }
+        a {
+            position: relative;
+            color: #fff;
+        }
+        .jcm-youjiantou1 {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            font-size: 26px;
+            line-height: 20px;
+        }
+    }
+    .attence-loading {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+.attence-card {
+    position: relative;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    background: -moz-linear-gradient(top, lighten($global-base-color, 15%) 0%, lighten($global-base-color, 8%) 25%, $global-base-color 100%);
+    background: -webkit-linear-gradient(top, lighten($global-base-color, 15%) 0%, lighten($global-base-color, 8%) 25%, $global-base-color 100%);
+    background: linear-gradient(to bottom, lighten($global-base-color, 15%) 0%, lighten($global-base-color, 8%) 25%, $global-base-color 100%);
+    & > div {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 133px;
+        height: 133px;
+        background: #fff;
+        border-radius: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &:active, &.active {
+        & > div{
+            background: #f6f6f6;
+        }
+        color: #999;
+        background: -moz-linear-gradient(top, #e7e7e7  0%, lighten(#d4d4d4, 8%) 25%, #d4d4d4 100%);
+        background: -webkit-linear-gradient(top, #e7e7e7  0%, lighten(#d4d4d4, 8%) 25%, #d4d4d4 100%);
+        background: linear-gradient(to bottom, #e7e7e7 0%, lighten(#d4d4d4, 8%) 25%, #d4d4d4 100%);
+    }
+    .time {
+        font-size: 34px;
+    }
+    .slot {
+        font-size: 16px;
+    }
+}
+
+@keyframes attence {
+    from {
+        top: 32px;
+    }
+    50% {
+        top: 29px;
+    }
+    to {
+        top: 26px;
+    }
+}
+.mint-msgbox {
+    border-radius: 15px;
+}
+.situation {
+    margin-top: 15px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.situation-text {
+    width: 100%;
+    resize: none;
+    height: 100px;
+    border: none;
+} //弹出信息
+.mint-msgbox {
+    width: 90%;
+}
+.mint-msgbox-header {
+    display: none;
+}
+.mint-msgbox-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 193px;
+    border-bottom: 1px solid #eee;
+}
+.mint-msgbox-message {
+    flex: 1;
+}
+.mint-msgbox-btns {
+    height: 57px;
+}
+.mint-msgbox-cancel {
+    border-right: 1px solid #eee;
+}
+.confirmBtn {
+    color: #666;
+    font-size: 18px;
+    &.yes {
+        color: #f33;
+    }
+}
+.record {
+    position: fixed;
+    top: -48px;
+    right: 0;
+    padding: 12px;
+    padding-right: 15px;
+    height: 20px;
+    width: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+.attence-detail {
+    background-color: #fff;
+    &:first-child {
+        padding-top: 25px;
+    }
+    &.border{
+        margin-top: 20px;
+        border-top: 1px solid #e2e2e2;
+        border-bottom: 1px solid #e2e2e2;
+    }
+    .jcm-arrows {
+        position: absolute;
+        right: 10px;
+        top: 18px;
+        color: #aaa;
+    }
+    .content{
+        height: 20px;
+        width: 98%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    dt,
+    dd {
+        padding: 15px 10px 10px;
+        min-height: 50px;
+        font-size: 16px;
+        vertical-align: middle;
+    }
+    dt {
+        float: left;
+        padding-right: 0;
+        width: 80px;
+        color: #999;
+    }
+    dd {
+        position: relative;
+        margin-left: 80px;
+        color: #000;
+    }
+}
+
+.record-panel {
+    overflow-y: scroll;
+    background-color: #eee;
+}
+
+.job {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    & > div {
+        flex-basis: 50%;
+        padding: 10px;
+        color: #333;
+        overflow: hidden;
+    }
+    .marker {
+        position: relative;
+        margin-top: 10px;
+        img {
+            width: 100%;
+            max-width: 100%;
+        }
+        .time {
+            position: absolute;
+            top: 2px;
+            left: 15px;
+            font-size: 32px;
+            color: #fff;
+        }
+        .caution {
+            position: absolute;
+            bottom: 8px;
+            left: 15px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+    .marker-footer {
+        padding-left: 3px;
+        min-height: 30px;
+        color: #999;
+        font-size: 14px;
+        box-shadow: 1px 2px 1px 1px #eee;
+        border-radius: 0 0 5px 5px;
+        word-break: break-all;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    .job .marker .time {
+        top: 15px;
+    }
+    .job .marker .caution {
+        bottom: 15px;
+    }
+}
+.position{
+    background: #eee;
+    .search{
+        position:relative;
+        height: 48px;
+        input{
+            width: 100%;
+            height: 34px;
+            text-indent: 30px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            -webkit-appearance:none !important;
+        }
+        i{
+            position:absolute;
+            top: 13px;
+            left:22px;
+            font-weight: bold;
+            color: #999;
+            font-size: 20px;
+        }
+        .search-cancel{
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 48px;
+            width: 60px;
+            line-height:48px;
+            text-align: center;
+            border: none;
+            background: #eee;
+            font-size: 18px;
+            color: #999;
+        }
+        &>form{
+            padding: 7px 15px;
+            padding-right: 60px;
+            background: #eee;
+        }
+        &.panel{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            .map-list{
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding-top:48px;
+                width: 100%;
+                height:100%;
+                background: #555;
+                opacity:0.5;
+                transition: background .5s;
+                z-index: -1;
+            }
+        }
+    }
+
+    #container{
+        height: 280px;
+    }
+    
+}
+
+.map-list{
+    overflow-y: scroll;
+    background: #fff;
+    padding-bottom: 30px;
+    &.active{
+        position: absolute;
+        top: 48px;
+        left: 0;
+        width: 100%;
+    }
+    .selected{
+        color: #247fff;
+    }
+    .mint-cell-allow-right{
+        display: none;
+    }
+
+    .mint-cell-wrapper{
+        padding-right: 20px;
+    }
+}
+#listContainer{
+    &.searchPanel{
+        background: #eee;
+        opacity: 1 !important;
+    }
+}
+.success {
+    .success-img {
+        border-top: 1px solid #ccc;
+        .success-bg {
+            width: 116px;
+            height: 116px;
+            margin: 75px auto 25px;
+            background: url(./sources/duihao.png) no-repeat;
+            background-size: 100% 100%;
+            border-radius: 50%;
+        }
+        h1 {
+            font-size: 20px;
+            font-weight: bold;
+            color: $global-base-color;
+            text-align: center;
+        }
+    }
+    .success-info {
+        width: 260px;
+        margin: 75px auto 0;
+        border-top: 1px solid #e2e2e2;
+        p {
+            font-size: 14px;
+            color: $list-label-color;
+            margin-top: 22px;
+        }
+        span {
+            float: right;
+            color: $list-title-color;
+        }
+    }
+}

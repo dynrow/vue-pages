@@ -1,0 +1,791 @@
+@import '../../assets/sass/params';
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+#app {
+    height: 100%;
+    color: #2c3e50;
+    background: #fff;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+#app main,
+#app .animated {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+//动画 start
+.animated {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation-duration: $android-transition-duration;
+    animation-fill-mode: both;
+    background: #fff;
+    will-change: transform;
+    z-index: 1;
+}
+
+.slideInRight-enter-active {
+    animation-name: slideInLeft;
+}
+
+.slideInLeft-enter-active,
+.slideInRight-enter-active {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+}
+
+.slideInLeft-leave-active,
+.slideInRight-leave-active {
+    position: fixed !important;
+    top: 40px;
+    width: 100%;
+}
+
+.slideInLeft-enter-active {
+    animation-name: slideInRight;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+        opacity: 1;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        opacity: 1;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+//动画 end
+
+ :before,
+:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+
+.main {
+    margin: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.header .mint-header,
+.footer {
+    height: 53px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.footer .mint-tab-item {
+    padding: 15px 10px;
+}
+
+
+/**
+    * 向下都是可以项目中自定义的样式 ,如无用可删除
+    */
+
+.jcupload .webuploader-pick {
+    width: 120px;
+    background-color: #f90;
+}
+
+.mail-list {
+    .mint-search .mintui-search {
+        font-size: 18px;
+        margin: 0 8px 0 3px;
+        color: #999;
+    }
+    
+    .mint-search {
+        height: 48px;
+        color: #333;
+        font-size: 15px;
+    }
+    
+    .mint-searchbar {
+        padding: 7px 15px;
+        background: #EEEEEE;
+    }
+    
+    .mint-searchbar-inner{
+        height: 34px;
+    }
+    
+    .mint-navbar .mint-tab-item {
+        padding: 17px 0;
+    }
+    
+    .mint-navbar .mint-tab-item.is-selected {
+        margin: 0;
+        color: #4d8afe;
+        border-bottom: 3px solid #4d8afe;
+    }
+    
+    .mint-tab-item-label {
+        font-size: 16px;
+    }
+    
+    .mint-searchbar-cancel{
+        display: none;
+    }
+    
+    .mint-tab-item-label .mint-badge {
+        position: relative;
+        left: 4px;
+        top: -2px;
+    }
+    
+    .mint-tab-item-label i {
+        color: #ffd213;
+        margin-right: 18px;
+        font-size: 17px;
+        top: -1px;
+        position: relative;
+    }
+    
+    .mint-badge.is-size-small {
+        border-radius: 50px;
+        padding: 0;
+        width: 6px;
+        height: 6px;
+    }
+}
+
+
+
+.page-infinite {
+    .mail-item {
+        width: 100%;
+    }
+    .mpoint{
+        position:absolute;
+        display:block;
+        width:6px;
+        height:6px;
+        border-radius:50%;
+        background:#4d8afe;
+        left: 5px;
+        top: 20px;
+    }
+    .mint-cell:active {
+        background: $list-active-bgcolor;
+    }
+    .mint-cell {
+        height: 68px !important;
+        padding: 0 15px;
+        .mint-cell-allow-right::after {
+            display: none;
+        }
+        .mint-cell-wrapper {
+            position: relative;
+            padding: 15px 0;
+            background-image: none;
+            align-items: stretch;
+            height: 68px;
+            line-height: 68px;
+            border-bottom: $list-bottom-border;
+            .mint-cell-title {
+                height: 20px;
+                line-height: 20px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                .mint-cell-text {
+                    line-height: 20px;
+                    position: absolute;
+                    text-decoration: none;
+                    color: $list-title-color;
+                }
+                .approve-infor {
+                    padding: $list-type-icon-padding;
+                    margin-right: 10px;
+                    font-size: $list-type-font;
+                    color: $list-type-color;
+                    border: $list-type-border;
+                    border-radius: $list-type-radius;
+                }
+            }
+            .mint-cell-value {
+                position: absolute;
+                font-size: 12px;
+                color: #666;
+                .mr20 {
+                    margin-right: 20px;
+                }
+                .mr10 {
+                    margin-right: 10px;
+                }
+            }
+            i{
+                position: relative;
+                top: -1px;
+            }
+            i.gray{
+                color: #999;
+                margin-right: 10px;
+            }
+            i.yellow{
+                color: #ffd213;
+            }
+            i.orange{
+                color: #fa684b;
+                font-size: 14px;
+                height: 20px;
+                line-height: 20px;
+            }
+        }
+        .toodjump {
+            color: #333;
+            text-decoration: none;
+        }
+    }
+}
+
+.emailDetail-wrap {
+    overflow-y: scroll;
+    .emailDetail-wrap header {
+        height: 40px;
+        flex-grow: 0;
+    }
+    .emailDetail-wrap {
+        display: flex;
+        flex-direction: column;
+        background: #FAFAFA;
+        word-break: break-all;
+        bottom: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow-y: scroll;
+    }
+    .emailDetail-top {
+        padding: 0px 15px 10px;
+        h1{
+            padding: 5px 0;
+            line-height: 30px;
+            font-size: 22px;
+            color: #000;
+        }
+        .emailDetail-branch {
+            padding: 5px 0;
+            line-height: 30px;
+            font-size: 22px;
+            color: #000;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .emailDetail-send {
+        color: #333;
+        line-height: 25px;
+        min-height: 25px;
+    }
+    .emailDetail-send:before {
+        content: '';
+        display: block;
+        width: 0;
+        clear: both;
+        visibility: hidden;
+        overflow: hidden;
+    }
+    .emailDetail-send span {
+        font-size: 15px;
+        color: #333333;
+        height: 20px;
+        line-height: 20px;
+    }
+    .emailDetail-send span.attach {
+        padding-right: 20px;
+        background: url(./images/iconload.png) center right no-repeat;
+    }
+    .emailDetail-send span i {
+        font-size: 16px;
+        font-style: normal;
+        color: #333333;
+        margin-right: 5px;
+    }
+    .emailDetail-send span b {
+        float: right;
+        width: 21px;
+        height: 21px;
+        margin-left: 6px;
+        border: 1px solid #E2E2E2;
+        border-radius: 3px;
+        text-align: center;
+    }
+    .emailDetail-send span b i {
+        margin: 0;
+    }
+    .emailDetail-send span.fr {
+        float: right;
+        padding-top: 2px;
+    }
+    .emailDetail-content {
+        position: fixed;
+        bottom: 53px;
+        overflow: auto;
+        color: #333;
+        background: #FAFAFA;
+        font-size: 16px;
+        line-height: 25px;
+        padding: 15px;
+        width: 100%;
+        border-top: 1px solid #E2E2E2;
+    }
+    .emailDetail-wrap footer {
+        flex-grow: 0;
+        height: 52px;
+        border-top: 1px solid #E8E8E8;
+        background: #fff;
+    }
+    .emaildetail-char {
+        padding: 10px 15px;
+    }
+    .emaildetail-char p {
+        line-height: 40px;
+        text-indent: 2em;
+        font-size: 18px;
+        color: #333333;
+    }
+    .emaildetail-attach {
+        padding-top: 10px;
+    }
+    .emaildetail-attach>div {
+        position: absolute;
+        line-height: 30px;
+        font-size: 15px;
+        color: #333333;
+        margin-right: 5px;
+    }
+    .emaildetail-attach p {
+        padding-left: 48px;
+        line-height: 30px;
+        font-size: 15px;
+        color: #4e8dff;
+    }
+    footer>ul:before {
+        content: '';
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+        overflow: hidden;
+    }
+    footer>ul {
+        height: 100%;
+        padding: 10px 15px;
+    }
+    footer>ul>li {
+        /*		position: relative;*/
+        float: left;
+        width: 25%;
+        height: 100%;
+        /*padding:0 15px;*/
+    }
+    footer>ul>li:first-child {
+        position: relative;
+    }
+    footer>ul>li a {
+        display: block;
+        height: 100%;
+        line-height: 31px;
+        font-size: 15px;
+        text-align: center;
+        color: #4e8dff;
+    }
+    footer ul li:first-child .pbstyle {
+        color: #fff;
+        background-color: #4E8DFF;
+        border-radius: 3px;
+    }
+    .footerfirst-list {
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+        left: 0;
+        top: -122px;
+        border: 1px solid #E4E4E4;
+        border-radius: 3px;
+        height: 112px;
+        background: #fff;
+    }
+    .footerfirst-list {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .footerfirst-list li {
+        float: none;
+        height: 36px;
+        line-height: 36px;
+        border-bottom: 1px solid #E2E2E2;
+        color: #000;
+        text-align: center;
+        font-size: 14px;
+    }
+    .footerfirst-list li:last-child {
+        border: none;
+        color: #999999;
+    }
+    .footerfirst-list:before {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        margin-left: -8px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 10px solid #E8E8E8;
+    }
+    .footerfirst-list:after {
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        margin-left: -6px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid #fff;
+    }
+    .pr {
+        position: relative;
+    }
+    .addStarRtx i {
+        font-size: 16px;
+        margin-right: 5px;
+    }
+    .deldelStarRtx i {
+        color: #ffd213;
+        font-size: 16px;
+        margin-right: 5px;
+    }
+    .box-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 53px;
+        .mint-tabbar{
+            background-image:none;
+            border-top: 1px solid #e2e2e2;
+            padding: 0 15px;
+        }
+        .mint-tab-item{
+//          padding: 10px 10px;
+            border-radius: 4px;
+        }
+        .mint-tab-item-label{
+            height: 33px;
+            line-height: 33px;
+            color: #4e8dff;
+            font-size: 16px;
+            white-space:nowrap;
+            i{
+                color: #ffd213;
+                margin-right: 2px;
+                font-size: 17px;
+                top: -2px;
+                position: relative;
+            }
+        }
+        .selected{
+            .mint-tab-item-label{
+                color: #fff;
+                background-color: #4e8dff;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+//写邮件    
+.compose {
+    display: flex;
+    flex-direction: column;
+    .userlist {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    .userlist ul li {
+        height: 50px;
+        padding: 0px;
+        border-bottom: 1px solid #e2e2e2;
+        display: flex;
+        align-items: center;
+    }
+    
+    .userlist ul li div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        overflow: auto;
+    }
+    .userlist ul li div::-webkit-scrollbar {width: 0px;height: 0px;}
+    
+    .userlist ul li div>a {
+        padding: 0 10px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 15px;
+        background: #f2f2f2;
+        white-space: nowrap;
+        margin-right: 5px;
+        border-radius: 5px;
+    }
+    
+    .userlist ul li div>a i {
+        margin-left: 5px;
+        color: #333;
+    }
+    
+    .userlist ul li div .theme {
+        font-size: 16px;
+        width: 100%;
+        height: 30px;
+        border: 0;
+        outline: none;
+    }
+    
+    .userlist ul li>span {
+        margin-right: 10px;
+    }
+    
+    .userlist ul li span {
+        white-space: nowrap;
+        color: #999;
+    }
+    
+    .userlist ul li span.w-p100 {
+        width: 100%;
+    }
+    
+    .list ul li img {
+        margin-left: 15px;
+    }
+    
+    .cutImg {
+        color: #4e8dff;
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+    }
+    
+    .mail-content{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: auto;
+        .mail-text{
+            flex: 1;
+        }
+        .mint-cell-wrapper{
+            background-image:none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    
+    textarea, .textarea {
+        font-family: Arial;
+        font-size: 16px;
+        color: #333;
+        margin: 10px 0;
+        resize: none;
+        width: 100%;
+        min-height: 200px;
+        line-height: 25px;
+        -webkit-user-select: text;
+        border: 0;
+        outline: none;
+        padding: 0 15px;
+        flex: 1;
+    }
+    
+    .picList {
+        min-height: 80px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #fafafa;
+        ul {
+            display: flex;
+            padding: 0 5px;
+            overflow: auto;
+            height: 100%;
+        }
+        li {
+            display: flex;
+            padding: 10px;
+            position: relative;
+            float: left;
+        }
+    }
+    .picList ul::-webkit-scrollbar {width: 0px;height: 0px;}
+    
+    .deleteId {
+        width: 20px;
+        height: 20px;
+        color: red;
+        font-size: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    
+    .userlist ul li div.w50 {
+        overflow: hidden;
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+    }
+    
+    .webuploader-pick.jcimg {
+        width: 40px;
+        height: 40px;
+        background: none;
+        /* background: url(../../images/iconload.png) center right no-repeat; */
+        display: inline-block;
+        color: #4e8dff;
+        font-size: 30px;
+        padding: 0;
+    }
+    
+    .sendBtn {
+        position: fixed;
+        bottom: 20px;
+        padding: 5px 0;
+        align-items: center;
+        height: 42px;
+        line-height: 42px;
+        z-index: 2;
+        right: 20px;
+    }
+    
+    .sendBtn span {
+        float: left;
+    }
+    
+    .sendBtn button {
+        float: right;
+        background: #4e8dff;
+        height: 32px;
+    }
+    
+    .allConTitle {
+        margin: 10px 0;
+        padding: 5px 10px;
+        background: #f0f0f0;
+        border-radius: 5px;
+        color: #212121;
+        font-size: 15px;
+    }
+    
+    .allConTitle p {
+        text-align: left;
+        line-height: 24px;
+    }
+    
+    .allContent {
+        margin: 0 10px;
+        color: #212121;
+    }    
+    
+    .blueCol {
+        color: #4e8dff;
+        font-size: 18px;
+        padding-top: 12px;
+    }
+}
+
+
+//所有从底部弹出菜单公共样式-----
+.mint-actionsheet-listitem {
+    height: 50px;
+    line-height: 50px;
+}
+
+.mint-actionsheet-listitem:first-child {
+    height: 65px;
+    line-height: 65px;
+    font-size: 15px;
+}
+
+.mint-actionsheet-listitem:nth-child(2) {
+    color: #ff4e4e;
+}
+
+.mint-actionsheet-button {
+    height: 50px;
+    line-height: 50px;
+}
+ //-----
+
+.mint-header-button.is-right{
+    font-size: 16px;
+    opacity:0.4;
+}
+.mint-header-button.is-right.active{
+    font-size: 16px;
+    opacity:1;
+}

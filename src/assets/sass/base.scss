@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+//引用全局的参数与混合等等...
+@import './params';
+//样式重置
+@import './reset';
+
+
+
+.mint-cell:last-child {
+    background-image: none;
+}

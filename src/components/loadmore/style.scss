@@ -1,0 +1,72 @@
+$offset-height: 40px !default;
+
+.yo-scroll {
+    position: relative;
+    overflow: scroll;
+    z-index: 100;
+    .inner {
+        position: absolute;
+        top: -$offset-height;
+        width: 100%;
+        height: auto;
+        transition-duration: 300ms;
+        .pull-refresh {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: $offset-height;
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .load-more {
+            height: $offset-height;
+            line-height: $offset-height;
+            display: block;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .nullData {//暂无更多数据样式
+            font-size: 20px;
+            color: #999999;
+            height: $offset-height;
+            line-height: $offset-height;
+            text-align: center;
+        }
+        .down-tip,
+        .refresh-tip,
+        .up-tip {
+            display: none;
+        }
+        .up-tip:before,
+        .refresh-tip:before {
+            content: '';
+            display: inline-block;
+            width: 160px;
+            height: 70px;
+            background-size: 70% !important;
+            position: absolute;
+            top: 0;
+            left: 20%;
+        }
+    }
+}
+
+.yo-scroll.touch .inner {
+    transition-duration: 0;
+}
+
+.yo-scroll.down .down-tip {
+    display: block;
+}
+
+.yo-scroll.up .up-tip {
+    display: block;
+}
+
+.yo-scroll.refresh .refresh-tip {
+    display: block;
+}

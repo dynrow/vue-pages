@@ -1,0 +1,82 @@
+@charset "UTF-8";
+//	全局颜色只给一个基色值  hover颜色 使用
+//	lighten		通过改变颜色的亮度值，让颜色变亮
+//	darken		通过改变颜色的亮度值，让颜色变暗
+//	saturate	通过改变颜色的饱和度值，让颜色更饱和
+//  desaturate	通过改变颜色的饱和度值，让颜色更少的饱和
+//  使用方法    darken(#dff0d8,5%); 把#dff0d8颜色亮度降低5%
+//	默认全部的hover颜色就是使用darken函数降低亮度5%
+
+
+$global-base-color: #4c8bff !default;
+
+$padding-default: 15px !default;
+
+$page-padding: 0 15px !default;//页面左右间距15px
+
+$tabNav-color-active: #4d8afe !default;//tab切换的选中状态
+
+$tabNav-color-default: #6a707e !default;//tab的字体颜色
+
+$tabNav-height: 65px !default;//tab的高度
+
+$tabNav-font: 16px !default;//tab的字体大小
+
+$list-height: 65px !default;//列表页的单行高度
+
+$list-title-color:#333 !default;//单行列表title的字体颜色
+
+$list-title-font: 17px !default;//单行列表title的字体大小
+
+$list-label-color: #999 !default;//单行列表附加信息的字体颜色（包括时间、发件人、文件大小等）
+
+$list-label-font: 14px !default;//单行列表附加信息的字体大小（包括时间、发件人、文件大小等）
+
+$list-padding: 10px 0 !default;//单行列表上下空白10px
+
+$list-type-padding: 8px 0 9px !default;//有类型的单行列表上下空白（办公室收文、办公室发文、信息管理等）
+
+$list-type-border: 1px solid #4e8dff !default;//列表类型的边框
+
+$list-type-color: #4e8dff !default;//列表类型的字体颜色
+
+$list-type-font: 14px !default;//列表类型的字体大小
+
+$list-type-radius: 3px!default;//列表类型的圆角大小
+
+$list-type-icon-padding: 4px!default;//列表类型的间距
+
+$list-bottom-border: 1px solid #ededed !default;//单行列表的下边框
+
+$list-active-bgcolor: #e6e6e6 !default;//单行列表按下时用户反馈
+
+$search-font: 14px !default;//搜索框的字体大小
+
+$search-color: #999 !default;//搜索框的字体颜色
+
+$search-icon-color: $search-color !default;//搜索框字体图标的颜色
+
+$search-icon-font: 17px !default;//搜索框字体图标的大小
+
+$detail-title-color: #333 !default;//详情页面title的字体颜色
+
+$detail-title-font: 20px !default;//详情页面title的字体大小
+
+$detail-label-font: 14px !default;//详情页面label的字体大小
+
+$detail-label-color: #999 !default;//详情页面label的字体颜色，左右形式详情页的title颜色
+
+$detail-title-type-font: 16px !default;//左右形式的详情页面title的字体大小
+
+$detail-content-color: #333 !default;//所有详情页面内容的字体颜色
+
+$detail-content-font: 18px !default;//详情页面内容的字体大小
+
+$detail-content-type-font: 16px !default;//左右形式的详情页面内容的字体大小
+
+
+$ios-transition-duration:              500ms !default;
+$ios-transition-timing-function:       cubic-bezier(.36, .66, .04, 1) !default;
+
+$android-transition-duration:          250ms !default;
+$android-transition-timing-function:   cubic-bezier(0.4, 0.6, 0.2, 1) !default;
